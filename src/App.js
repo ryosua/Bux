@@ -1,5 +1,5 @@
 import React from "react";
-import { MemoryRouter as Router } from "react-router";
+import { BrowserRouter as Router } from "react-router-dom";
 
 import Home from "./pages/Home";
 

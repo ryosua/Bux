@@ -1,20 +1,15 @@
 import React from "react";
-
-import { Link as RouterLink } from "react-router-dom";
+import { withRouter } from "react-router";
 import Button from "@material-ui/core/Button";
 
-const LinkButton = ({ to, text }) => {
-  const LinkBehavior = React.forwardRef((props, ref) => (
-    <RouterLink ref={ref} to={to} {...props} />
-  ));
-
+const LinkButton = ({ to, text, history }) => {
   return (
     <div>
-      <Button color="primary" component={LinkBehavior}>
+      <Button color="primary" onClick={() => history.push(to)}>
         {text}
       </Button>
     </div>
   );
 };
 
-export default LinkButton;
+export default withRouter(LinkButton);
