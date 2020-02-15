@@ -1,7 +1,8 @@
 import React from "react";
 import Box from "@material-ui/core/Box";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+
+import LinkButton from "../../components/LinkButton";
 
 const Home = () => (
   <>
@@ -9,11 +10,11 @@ const Home = () => (
     <Box display="flex" flex={1}>
       <Box>
         <Typography>for everyone</Typography>
-        <Button>Take a test</Button>
+        <LinkButton text="Take a test" to="/account" />
       </Box>
       <Box>
         <Typography>for devs</Typography>
-        <Button> Create a test</Button>
+        <LinkButton text="Create a test" to="/account" />
       </Box>
     </Box>
   </>
