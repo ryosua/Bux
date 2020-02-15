@@ -14,7 +14,7 @@ const Home = () => (
       </Box>
       <Box>
         <Typography>for devs</Typography>
-        <LinkButton text="Create a test" to="/account" />
+        <LinkButton text="Create a test" to="/createTest" />
       </Box>
     </Box>
   </>
