@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TextField, Button, Link } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
@@ -24,32 +24,16 @@ const useStyles = makeStyles({
 
 export default function TestForm() {
   const classes = useStyles();
-  let [img1, setImg1] = useState("");
-  let [img2, setImg2] = useState("");
   let [editMode, toEditMode] = useState(true);
-  console.log(img1);
-  console.log(img2);
 
   const handleSubmit = e => {
     e.preventDefault();
   };
 
-  const handleImageChange = e => {
-    e.preventDefault();
-
-    let reader = new FileReader();
-    let file = e.target.files[0];
-
-    reader.onloadend = () => {
-      setImg1(reader.result);
-    };
-
-    reader.readAsDataURL(file);
-  };
-
   return editMode ? (
     <form onSubmit={e => handleSubmit(e)} className={classes.form}>
       <div>
+        <label>Set Bounty</label>
         <TextField
           variant="outlined"
           required
@@ -61,21 +45,15 @@ export default function TestForm() {
         />{" "}
       </div>
       <TextField
+        id="outlined-multiline-static"
+        label="Multiline"
+        multiline
+        rows="4"
+        defaultValue="Description"
         variant="outlined"
-        required
-        label="Description"
-        InputLabelProps={{
-          shrink: true
-        }}
       />
-      <img alt="Image A" src={img1} className={classes.img} />
-      <input type="file" value={img1} onChange={e => handleImageChange(e)} />
-      <img alt="Image B" src={img2} className={classes.img} />
-      <input
-        type="file"
-        value={img2}
-        onChange={e => setImg2(e.target.files[0])}
-      />
+      <input type="file" />
+      <input type="file" />
       <Button
         className={classes.root}
         variant="contained"
