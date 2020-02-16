@@ -8,6 +8,7 @@ import MyTests from "./pages/MyTests";
 import Results from "./pages/Results";
 import Test from "./pages/Test";
 import TestForm from "./pages/TestForm";
+import Wallet from "./pages/Account/Wallet";
 
 import GraphQLTest from "./pages/GraphQLTest";
 
@@ -55,6 +56,7 @@ function App() {
             <Route exact path="/testForm" component={TestForm} />
             <Route exact path="/graphql" component={GraphQLTest} />
             <Route exact path="/account" component={Account} />
+            <Route exact path="/wallet" component={Wallet} />
           </header>
         </Router>
       </ApolloProvider>
