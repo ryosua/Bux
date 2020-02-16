@@ -178,7 +178,7 @@ export default function TestForm() {
           />
           <label className={classes.upload} htmlFor="contained-button-file1">
             <Button variant="contained" color="primary" component="span">
-              Upload
+              Upload Image A
             </Button>
           </label>
           <input
@@ -191,7 +191,7 @@ export default function TestForm() {
           />
           <label className={classes.upload} htmlFor="contained-button-file2">
             <Button variant="contained" color="primary" component="span">
-              Upload
+              Upload Image B
             </Button>
           </label>
           <br />
