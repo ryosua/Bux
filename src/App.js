@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import { Route } from "react-router-dom";
 
+import Account from "./pages/Account";
 import Home from "./pages/Home";
 import MyTests from "./pages/MyTests";
 import Results from "./pages/Results";
@@ -56,6 +57,7 @@ function App() {
             <Route exact path="/test" component={Test} />
             <Route exact path="/testForm" component={TestForm} />
             <Route exact path="/graphql" component={GraphQLTest} />
+            <Route exact path="/account" component={Account} />
           </header>
         </Router>
       </ApolloProvider>
