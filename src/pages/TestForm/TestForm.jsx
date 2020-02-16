@@ -71,14 +71,16 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "10px"
   },
   upload: {
-    margin: "30px"
+    margin: "5px"
   },
   details: {
     height: "250px"
   },
   proceed: {
-    margin: "30px",
-    marginTop: "-20px"
+    margin: "5px"
+  },
+  main: {
+    textAlign: "left"
   }
 }));
 
@@ -118,7 +120,7 @@ export default function TestForm() {
   };
 
   return (
-    <div>
+    <div className={classes.main}>
       <h2>1. What type of UX test do you want to create?</h2>
       <hr />
       <div className={classes.typeCards}>
