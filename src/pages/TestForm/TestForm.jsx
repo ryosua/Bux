@@ -71,10 +71,14 @@ const useStyles = makeStyles(theme => ({
     marginBottom: "10px"
   },
   upload: {
-    margin: "20px"
+    margin: "30px"
   },
   details: {
     height: "250px"
+  },
+  proceed: {
+    margin: "30px",
+    marginTop: "-20px"
   }
 }));
 
@@ -82,6 +86,10 @@ export default function TestForm() {
   const classes = useStyles();
   let [editMode, toEditMode] = useState(false);
   let [tokens, setTokens] = useState(3);
+  let [images, setimg] = useState();
+
+  console.log(images);
+  console.log(tokens);
 
   const handleChange = event => {
     setTokens(event.target.value);
@@ -90,6 +98,23 @@ export default function TestForm() {
   const handleSubmit = e => {
     e.preventDefault();
     toEditMode(!editMode);
+  };
+
+  const handlePost = e => {};
+
+  const setImages = (e, number) => {
+    e.preventDefault();
+    const imageFiles = e.target.files;
+    const filesLength = imageFiles.length;
+    for (var i = 0; i < filesLength; i++) {
+      let reader = new FileReader();
+      let file = imageFiles[i];
+
+      reader.onloadend = () => {
+        setimg({ ...images, [`images${number}`]: reader.result });
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   return (
@@ -146,16 +171,25 @@ export default function TestForm() {
           <input
             accept="image/*"
             className={classes.input}
-            id="contained-button-file"
+            id="contained-button-file1"
             multiple
             type="file"
+            onChange={e => setImages(e, 1)}
           />
-          <label className={classes.upload} htmlFor="contained-button-file">
+          <label className={classes.upload} htmlFor="contained-button-file1">
             <Button variant="contained" color="primary" component="span">
               Upload
             </Button>
           </label>
-          <label className={classes.upload} htmlFor="contained-button-file">
+          <input
+            accept="image/*"
+            className={classes.input}
+            id="contained-button-file2"
+            multiple
+            type="file"
+            onChange={e => setImages(e, 2)}
+          />
+          <label className={classes.upload} htmlFor="contained-button-file2">
             <Button variant="contained" color="primary" component="span">
               Upload
             </Button>
@@ -164,7 +198,7 @@ export default function TestForm() {
         </div>
       )}
       {editMode && (
-        <>
+        <div>
           <div className={classes.details}>
             <h2>3. Set token award</h2>
             <hr />
@@ -184,6 +218,7 @@ export default function TestForm() {
             variant="contained"
             color="primary"
             component="span"
+            className={classes.proceed}
             onClick={e => handleSubmit(e)}
           >
             Cancel
@@ -192,11 +227,12 @@ export default function TestForm() {
             variant="contained"
             color="primary"
             component="span"
-            onClick={e => handleSubmit(e)}
+            className={classes.proceed}
+            onClick={e => handlePost(e)}
           >
             Publish
           </Button>
-        </>
+        </div>
       )}
     </div>
   );
