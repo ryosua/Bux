@@ -9,7 +9,6 @@ import Results from "./pages/Results";
 import Test from "./pages/Test";
 import TestForm from "./pages/TestForm";
 
-import TestType from "./pages/TestType";
 import GraphQLTest from "./pages/GraphQLTest";
 
 import {

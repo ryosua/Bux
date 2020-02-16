@@ -8,17 +8,12 @@ const useStyles = makeStyles({
     backgroundColor: "#FFF",
     width: "160px",
     margin: "5px",
-    fontWeight: "550",
+    fontWeight: "550"
   }
 });
 
-const LinkButton = ({ to, text, history }) => {
-  const classes = useStyles();
-
-  return (
-    <div>
-      <Button className={classes.button} onClick={() => history.push(to)}>
 const LinkButton = ({ to, text, history, onClick }) => {
+  const classes = useStyles();
   return (
     <div>
       <Button
