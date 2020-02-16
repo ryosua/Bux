@@ -18,6 +18,16 @@ const LinkButton = ({ to, text, history }) => {
   return (
     <div>
       <Button className={classes.button} onClick={() => history.push(to)}>
+const LinkButton = ({ to, text, history, onClick }) => {
+  return (
+    <div>
+      <Button
+        color="primary"
+        onClick={() => {
+          onClick && onClick();
+          history.push(to);
+        }}
+      >
         {text}
       </Button>
     </div>
