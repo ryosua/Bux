@@ -5,9 +5,9 @@ import Typography from "@material-ui/core/Typography";
 import CreateIcon from "@material-ui/icons/Create";
 import AssignmentIcon from "@material-ui/icons/Assignment";
 
-import Logo from '../../ui/bux.svg';
-import Background from '../../ui/bux-texture.jpg';
-import Arrow from '../../ui/down-arrow.svg';
+import Logo from "../../ui/bux.svg";
+import Background from "../../ui/bux-texture.jpg";
+import Arrow from "../../ui/down-arrow.svg";
 
 import LinkButton from "../../components/LinkButton";
 
@@ -16,19 +16,20 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles({
   header: {
     height: "600px",
+    color: "#FFF",
     width: "100%",
     backgroundImage: `url(${Background})`,
-    backgroundSize: "cover",
+    backgroundSize: "cover"
   },
-  logo:{
+  logo: {
     height: "140px",
-    margin: "130px 0px 20px 0px",
+    margin: "130px 0px 20px 0px"
   },
   boxLeft: {
     backgroundColor: "#17257c",
     width: "700px",
     height: "250px",
-    padding: "10px",
+    padding: "10px"
   },
   boxRight: {
     backgroundColor: "#230933",
@@ -45,13 +46,14 @@ const useStyles = makeStyles({
     borderRadius: "50em"
   },
   actions: {
-    borderTop: "4px solid #FFF"
+    borderTop: "4px solid #FFF",
+    color: "#FFF"
   },
-  arrow:{
-    height: "100px",
+  arrow: {
+    height: "100px"
   },
-  slogan:{
-    color: "#00ccfb",
+  slogan: {
+    color: "#00ccfb"
   }
 });
 
@@ -61,9 +63,11 @@ const Home = () => {
   return (
     <>
       <Box className={classes.header}>
-        <img alt="Bux logo" src= {Logo} className={classes.logo}/>
-        <Typography className={classes.slogan} variant="h3">Take a user test. Earn bux.</Typography>
-        <img alt= "Down arrow" src={Arrow} className={classes.arrow}/>
+        <img alt="Bux logo" src={Logo} className={classes.logo} />
+        <Typography className={classes.slogan} variant="h3">
+          Take a user test. Earn bux.
+        </Typography>
+        <img alt="Down arrow" src={Arrow} className={classes.arrow} />
         <Typography>GET STARTED</Typography>
       </Box>
       <Box display="flex" flex={1} className={classes.actions}>

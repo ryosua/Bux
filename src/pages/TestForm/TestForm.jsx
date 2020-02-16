@@ -2,25 +2,27 @@ import React, { useState } from "react";
 import {
   Button,
   Card,
-  Typography,
   CardContent,
   CardHeader,
   CardMedia,
-  Avatar
+  FormControl,
+  MenuItem,
+  Select,
+  Typography
 } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
-import AvB from "../../ui/AvB.jpeg";
-import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 
-const useStyles = makeStyles({
+import { makeStyles } from "@material-ui/core/styles";
+import AvB from "../../ui/AvB.jpg";
+import QA from "../../ui/QA.jpg";
+import Interview from "../../ui/Interview.jpg";
+
+const useStyles = makeStyles(theme => ({
   root: {
-    background: "grey",
+    backgroundColor: "#FFF",
     border: 0,
-    borderRadius: 3,
-    color: "white",
     width: 330,
     padding: "0 30px",
-    margin: "10px",
+    margin: "15px",
     borderRadius: "5px"
   },
   media: {
@@ -53,122 +55,149 @@ const useStyles = makeStyles({
   fade: {
     opacity: ".3"
   },
+  formControl: {
+    margin: theme.spacing(1),
+    minWidth: 120
+  },
   typeCards: {
     display: "flex",
-    flexFlow: "row no-wrap",
-    justifyContent: "space-between",
-    overflow: "scroll",
-    padding: "10px"
+    overflowX: "auto"
+  },
+  input: {
+    display: "none"
+  },
+  select: {
+    width: "200px",
+    marginBottom: "10px"
+  },
+  upload: {
+    margin: "20px"
+  },
+  details: {
+    height: "250px"
   }
-});
+}));
 
 export default function TestForm() {
   const classes = useStyles();
-  let [editMode, toEditMode] = useState(true);
+  let [editMode, toEditMode] = useState(false);
+  let [tokens, setTokens] = useState(3);
+
+  const handleChange = event => {
+    setTokens(event.target.value);
+  };
 
   const handleSubmit = e => {
     e.preventDefault();
+    toEditMode(!editMode);
   };
 
   return (
-    <form onSubmit={e => handleSubmit(e)} className={classes.form}>
-      <div>
-        <h2>1. What type of UX test do you want to create?</h2>
-        <div className={classes.typeCards}>
-          <Card className={classes.root}>
-            <CardHeader
-              title="Preference Test"
-              subheader="2 images, head to head"
-            />
-            <CardMedia
-              className={classes.media}
-              image={AvB}
-              title="2 images, head to head"
-            />
-            <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Cost: 3 Tokens
-              </Typography>
-              <Button>Create Test</Button>
-            </CardContent>
-          </Card>
-          <Card className={[classes.root, classes.fade]}>
-            <CardHeader title="Survey" subheader="Ask your user questions" />
-            <CardMedia
-              className={classes.media}
-              image={MoreHorizIcon}
-              title="Coming Soon"
-            />
-            <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Coming Soon
-              </Typography>
-              <Button disabled>Create Test</Button>
-            </CardContent>
-          </Card>
-          <Card className={[classes.root, classes.fade]}>
-            <CardHeader
-              title="User Interview"
-              subheader="1-on-1 conversations"
-            />
-            <CardMedia
-              className={classes.media}
-              image={MoreHorizIcon}
-              title="1-on-1 conversations"
-            />
-            <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Coming Soon
-              </Typography>
-              <Button disabled>Create Test</Button>
-            </CardContent>
-          </Card>
-          <Card className={[classes.root, classes.fade]}>
-            <CardHeader
-              title="Comprehension"
-              subheader="Test what users understand"
-            />
-            <CardMedia
-              className={classes.media}
-              image={MoreHorizIcon}
-              title="Test what users understand"
-            />
-            <CardContent>
-              <Typography variant="body2" color="textSecondary" component="p">
-                Coming Soon
-              </Typography>
-              <Button disabled>Create Test</Button>
-            </CardContent>
-          </Card>
-
-          {/* <Button  disabled variant="contained">Survey</Button>
-      <Button disabled  variant="contained">Usability</Button>
-
-        <label>Set Bounty</label>
-        <TextField
-          variant="outlined"
-          required
-          label="Number"
-          type="number"
-          InputLabelProps={{
-            shrink: true
-          }}
-        />{" "} */}
-        </div>
+    <div>
+      <h2>1. What type of UX test do you want to create?</h2>
+      <hr />
+      <div className={classes.typeCards}>
+        <Card className={classes.root}>
+          <CardHeader
+            title="Preference Test"
+            subheader="2 images, head to head"
+          />
+          <CardMedia
+            className={classes.media}
+            image={AvB}
+            title="2 images, head to head"
+          />
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Cost: 3 Tokens
+            </Typography>
+            <Button onClick={e => handleSubmit(e)}>Create Test</Button>
+          </CardContent>
+        </Card>
+        <Card className={[classes.root, classes.fade]}>
+          <CardHeader title="Survey" subheader="Ask your user questions" />
+          <CardMedia className={classes.media} image={QA} title="Coming Soon" />
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Coming Soon
+            </Typography>
+            <Button disabled>Create Test</Button>
+          </CardContent>
+        </Card>
+        <Card className={[classes.root, classes.fade]}>
+          <CardHeader title="User Interview" subheader="1-on-1 conversations" />
+          <CardMedia
+            className={classes.media}
+            image={Interview}
+            title="1-on-1 conversations"
+          />
+          <CardContent>
+            <Typography variant="body2" color="textSecondary" component="p">
+              Coming Soon
+            </Typography>
+            <Button disabled>Create Test</Button>
+          </CardContent>
+        </Card>
       </div>
-    </form>
-    // ) : (
-    //   <div>
-    //     <img />
-    //     <img />
-    //     <Button>Publish</Button>
-    //     <Button
-    //       className={classes.root}
-    //       variant="contained"
-    //       onClick={() => toEditMode(true)}
-    //     >
-    //       Edit
-    //     </Button>{" "}
-    //   </div>
+      {editMode && (
+        <div className={classes.details}>
+          <h2>2. Select images to test</h2>
+          <hr />
+          <input
+            accept="image/*"
+            className={classes.input}
+            id="contained-button-file"
+            multiple
+            type="file"
+          />
+          <label className={classes.upload} htmlFor="contained-button-file">
+            <Button variant="contained" color="primary" component="span">
+              Upload
+            </Button>
+          </label>
+          <label className={classes.upload} htmlFor="contained-button-file">
+            <Button variant="contained" color="primary" component="span">
+              Upload
+            </Button>
+          </label>
+          <br />
+        </div>
+      )}
+      {editMode && (
+        <>
+          <div className={classes.details}>
+            <h2>3. Set token award</h2>
+            <hr />
+            <FormControl variant="outlined" className={classes.formControl}>
+              <Select
+                className={classes.select}
+                value={tokens}
+                onChange={handleChange}
+              >
+                <MenuItem value={1}>One</MenuItem>
+                <MenuItem value={2}>Two</MenuItem>
+                <MenuItem value={3}>Three</MenuItem>
+              </Select>
+            </FormControl>
+          </div>
+          <Button
+            variant="contained"
+            color="primary"
+            component="span"
+            onClick={e => handleSubmit(e)}
+          >
+            Cancel
+          </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            component="span"
+            onClick={e => handleSubmit(e)}
+          >
+            Publish
+          </Button>
+        </>
+      )}
+    </div>
   );
 }
