@@ -1,7 +1,8 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import TextField from "@material-ui/core/TextField";
+
+import LinkButton from "../../components/LinkButton";
 
 export default function() {
   return (
@@ -11,7 +12,7 @@ export default function() {
       <TextField />
       <Typography>Why did you select that option?</Typography>
       <TextField />
-      <Button>Submit</Button>
+      <LinkButton text="Submit" to="/success" />
     </>
   );
 }

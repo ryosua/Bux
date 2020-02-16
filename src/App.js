@@ -6,6 +6,7 @@ import Account from "./pages/Account";
 import Home from "./pages/Home";
 import MyTests from "./pages/MyTests";
 import Results from "./pages/Results";
+import Success from "./pages/Success";
 import Test from "./pages/Test";
 import TestForm from "./pages/TestForm";
 import Wallet from "./pages/Account/Wallet";
@@ -57,6 +58,7 @@ function App() {
             <Route exact path="/graphql" component={GraphQLTest} />
             <Route exact path="/account" component={Account} />
             <Route exact path="/wallet" component={Wallet} />
+            <Route exact path="/success" component={Success} />
           </header>
         </Router>
       </ApolloProvider>
