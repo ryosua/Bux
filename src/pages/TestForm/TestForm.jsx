@@ -200,22 +200,21 @@ export default function TestForm() {
         </div>
       )}
       {editMode && (
-        <div>
-          <div className={classes.details}>
-            <h2>3. Set token award</h2>
-            <hr />
-            <FormControl variant="outlined" className={classes.formControl}>
-              <Select
-                className={classes.select}
-                value={tokens}
-                onChange={handleChange}
-              >
-                <MenuItem value={1}>One</MenuItem>
-                <MenuItem value={2}>Two</MenuItem>
-                <MenuItem value={3}>Three</MenuItem>
-              </Select>
-            </FormControl>
-          </div>
+        <div className={classes.details}>
+          <h2>3. Set token award</h2>
+          <hr />
+          <FormControl variant="outlined" className={classes.formControl}>
+            <Select
+              className={classes.select}
+              value={tokens}
+              onChange={handleChange}
+            >
+              <MenuItem value={1}>One</MenuItem>
+              <MenuItem value={2}>Two</MenuItem>
+              <MenuItem value={3}>Three</MenuItem>
+            </Select>
+          </FormControl>
+          <br />
           <Button
             variant="contained"
             color="primary"
