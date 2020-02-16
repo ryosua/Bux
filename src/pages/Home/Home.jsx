@@ -78,7 +78,7 @@ const Home = () => {
         </Box>
         <Box className={classes.boxRight}>
           <CreateIcon className={classes.actionIcons} />
-          <LinkButton text="Create a test" to="/testForm" />
+          <LinkButton text="Create a test" to="/wallet" />
           <Typography>Get feedback on your product</Typography>
         </Box>
       </Box>
